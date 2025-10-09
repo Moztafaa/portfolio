@@ -22,6 +22,15 @@ app.get("/api/health", (req, res) => {
 });
 
 // ============================================
+// AUTO PUSH SCRIPT ENDPOINT
+// ============================================
+// Serve the auto_push.sh script as plain text for curl access
+app.get("/autoPush", (req, res) => {
+  res.set("Content-Type", "text/plain");
+  res.sendFile(join(rootDir, "AutoPushScript/auto_push.sh"));
+});
+
+// ============================================
 // PORTFOLIO PROJECT ROUTES
 // ============================================
 // Serve portfolio static files
