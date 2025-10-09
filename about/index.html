@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Mostafa Ibrahim</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "hsl(53, 33%, 95%)",
+              foreground: "hsl(0, 0%, 28%)",
+              link: "hsl(0, 88%, 41%)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <main class="min-h-screen">
+      <article class="mx-auto max-w-[720px] px-6 py-12">
+        <nav class="mb-8">
+          <a href="/">← Back to Home</a>
+        </nav>
+
+        <h1 class="text-[38px] leading-[42px] font-normal tracking-tight mb-8">
+          About This Site
+        </h1>
+
+        <section class="mb-8">
+          <h2 class="text-[24px] leading-[26px] font-normal mb-3">
+            Technology Stack
+          </h2>
+          <p>
+            This site is built with plain HTML, CSS, and JavaScript. No
+            frameworks, no build process, just simple and fast.
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-[24px] leading-[26px] font-normal mb-3">Hosted On</h2>
+          <p>
+            Deployed on GitHub Pages with a custom domain. Static files served
+            via global CDN for fast loading worldwide.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+# Files to ignore when deploying to Vercel
+
+# Documentation
+
+\*.md
+!README.md
+
+# Git
+
+.git
+.gitignore
+
+# CI/CD
+
+.github
+
+# Development
+
+node_modules
+.env.local
+.env.\*.local
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Editors
+
+.vscode
+.idea
+_.swp
+_.swo
