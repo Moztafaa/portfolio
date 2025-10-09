@@ -1,18 +1,19 @@
 {
-  "name": "moztafaaa-portfolio",
+  "name": "moztafaaa-monorepo",
   "version": "1.0.0",
-  "description": "Personal portfolio website powered by Express.js and deployed on Vercel",
-  "main": "server.js",
+  "description": "Monorepo for multiple projects - Portfolio and more, powered by Express.js and deployed on Vercel",
+  "main": "server/index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
     "vercel-build": "echo 'Build complete'"
   },
   "keywords": [
     "portfolio",
     "express",
-    "vercel"
+    "vercel",
+    "monorepo"
   ],
   "author": "Mostafa Ibrahim Elsayed",
   "license": "MIT",
