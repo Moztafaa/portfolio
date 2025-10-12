@@ -1,55 +1,55 @@
 #!/bin/bash
 
-# This is an infinite loop that will run until you manually stop it.
-# while true; do
-# 	echo "------------------------------------"
-# 	echo "Checking for changes at $(date)"
-#
-# 	# Check if there are any changes in the working directory.
-# 	# The 'if' block will only run if there are changes to commit.
-# 	if ! git diff-index --quiet HEAD --; then
-# 		echo "Changes found! Preparing to push..."
-#
-# 		# Add all new and modified files to the staging area.
-# 		git add .
-#
-# 		# Commit the changes with a message that includes the current timestamp.
-# 		git commit -m "Auto-commit: $(date)"
-#
-# 		# Push the changes to the remote repository.
-# 		git push -u origin main
-#
-# 		echo "✅ Push successful!"
-# 	else
-# 		echo "No changes to commit. Waiting..."
-# 	fi
-#
-# 	# This part now runs on every loop, whether there were changes or not.
-# 	echo "Waiting for 3 minutes before next check."
-# 	echo "------------------------------------"
-#
-# 	# Wait for 180 seconds (3 minutes) before the next cycle.
-# 	sleep 180
-# done
-
 # -----------------------------
-#
-BRANCH="main" # Replace with your branch
-INTERVAL=180  # Interval in seconds (10 minutes)
+# Parse command line arguments
+BRANCH="${1:-$(git branch --show-current)}" # Use first argument or detect current branch
+INTERVAL="${2:-180}"  # Interval in seconds (default: 3 minutes)
 
-# cd "$REPO_PATH" || { echo "Error: Cannot access repository path"; exit 1; }
+# Validate we're in a git repository
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+	echo "Error: Not in a git repository"
+	exit 1
+fi
+
+# Validate branch name was provided or detected
+if [ -z "$BRANCH" ]; then
+	echo "Error: Could not determine branch name"
+	echo "Usage: $0 [branch_name] [interval_seconds]"
+	echo "Example: $0 master 180"
+	exit 1
+fi
+
+echo "Starting auto-push on branch: $BRANCH (interval: ${INTERVAL}s)"
+echo "Press Ctrl+C to stop"
+echo "------------------------------------"
 
 while true; do
 	# Check for changes
 	if [ -n "$(git status --porcelain)" ]; then
-		echo "Changes detected, committing and pushing..."
+		echo "[$(date '+%H:%M:%S')] Changes detected, committing and pushing..."
 		git add .
 		git commit -m "Auto-push for live session: $(date '+%Y-%m-%d %H:%M:%S')"
-		git pull --rebase origin "$BRANCH"
-		git push origin "$BRANCH"
-		echo "Pushed successfully!"
+
+		# Check if remote branch exists
+		if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+			# Remote branch exists, pull with rebase to sync
+			if ! git pull --rebase origin "$BRANCH"; then
+				echo "Error: Failed to pull changes. Please resolve conflicts manually."
+				exit 1
+			fi
+		else
+			echo "Remote branch '$BRANCH' doesn't exist yet, will create it on first push."
+		fi
+
+		# Push changes (use -u flag for first push to set upstream)
+		if git push -u origin "$BRANCH"; then
+			echo "✅ Pushed successfully to $BRANCH!"
+		else
+			echo "Error: Failed to push to $BRANCH. Check your permissions and branch name."
+			exit 1
+		fi
 	else
-		echo "No changes to push."
+		echo "[$(date '+%H:%M:%S')] No changes to push."
 	fi
 	sleep "$INTERVAL"
 done
