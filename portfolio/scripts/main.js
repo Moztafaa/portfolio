@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initSocialLinkAnimations();
   initProfileImageEffect();
   initScrollReveal();
+  initLanguageSwitcher();
+  initAboutModal();
+  initTaglineRotation();
 });
 
 /**
@@ -224,3 +227,181 @@ document.addEventListener("keydown", function (e) {
     }
   }
 });
+
+/**
+ * Language Switcher - English/Arabic toggle like Luay's portfolio
+ */
+function initLanguageSwitcher() {
+  const langBtns = document.querySelectorAll(".lang-btn");
+  const translatableElements = document.querySelectorAll("[data-en][data-ar]");
+  const htmlElement = document.documentElement;
+
+  // Check for saved language preference
+  const savedLang = localStorage.getItem("preferredLanguage") || "en";
+  setLanguage(savedLang);
+
+  langBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const lang = this.getAttribute("data-lang");
+      setLanguage(lang);
+      localStorage.setItem("preferredLanguage", lang);
+    });
+  });
+
+  function setLanguage(lang) {
+    // Update active button
+    langBtns.forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+
+    // Update HTML lang and direction
+    htmlElement.setAttribute("lang", lang);
+    htmlElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+
+    // Update body class for RTL styling
+    document.body.classList.toggle("rtl", lang === "ar");
+
+    // Translate all elements with data attributes
+    translatableElements.forEach((el) => {
+      const text = el.getAttribute(`data-${lang}`);
+      if (text !== null) {
+        // Hide paragraphs with empty Arabic text in Arabic mode
+        if (lang === "ar" && text === "") {
+          el.style.display = "none";
+        } else {
+          el.style.display = "";
+          if (text) {
+            el.textContent = text;
+          }
+        }
+      }
+    });
+
+    // Update page title
+    if (lang === "ar") {
+      document.title = "مصطفى إبراهيم السيد - مطور خلفية";
+    } else {
+      document.title = "Mostafa Ibrahim Elsayed - Backend Developer";
+    }
+  }
+}
+
+/**
+ * Add RTL specific styles dynamically
+ */
+(function addRTLStyles() {
+  const style = document.createElement("style");
+  style.textContent = `
+    .rtl {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .rtl .profile-section {
+      direction: rtl;
+    }
+
+    .rtl .profile-name {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+    }
+
+    .rtl .profile-tagline {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 300;
+    }
+
+    .rtl .nav-links {
+      direction: rtl;
+    }
+
+    .rtl .nav-link {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+    }
+
+    .rtl .social-links {
+      direction: ltr;
+    }
+
+    .rtl .footer p {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
+/**
+ * About Modal - Popup like Luay's portfolio
+ */
+function initAboutModal() {
+  const aboutLink = document.getElementById("about-link");
+  const modal = document.getElementById("about-modal");
+  const closeBtn = document.getElementById("modal-close");
+
+  if (!aboutLink || !modal || !closeBtn) return;
+
+  // Open modal when clicking About link
+  aboutLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    openModal();
+  });
+
+  // Close modal when clicking X button
+  closeBtn.addEventListener("click", function () {
+    closeModal();
+  });
+
+  // Close modal when clicking outside content
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  function openModal() {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
+/**
+ * Tagline Rotation - Show funny text first, then switch to professional
+ */
+function initTaglineRotation() {
+  const tagline = document.querySelector(".profile-tagline");
+  if (!tagline) return;
+
+  const currentLang = localStorage.getItem("preferredLanguage") || "en";
+
+  // Set initial funny text based on current language
+  const initialText = tagline.getAttribute(`data-${currentLang}-initial`);
+  if (initialText) {
+    tagline.textContent = initialText;
+  }
+
+  // After 3 seconds, switch to the professional text with a fade effect
+  setTimeout(() => {
+    tagline.style.transition = "opacity 0.5s ease";
+    tagline.style.opacity = "0";
+
+    setTimeout(() => {
+      const professionalText = tagline.getAttribute(`data-${currentLang}`);
+      if (professionalText) {
+        tagline.textContent = professionalText;
+      }
+      tagline.style.opacity = "1";
+    }, 500);
+  }, 3000);
+}

@@ -2,33 +2,35 @@
 
 /* CSS Custom Properties - Design System */
 :root {
-  /* Light theme (default) */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a68;
-  --text-muted: #6c6c8a;
-  --accent-color: #3b82f6;
-  --accent-hover: #2563eb;
-  --border-color: #e5e7eb;
-  --shadow-color: rgba(0, 0, 0, 0.08);
+  /* Light theme (default) - Inspired by Luay's portfolio */
+  --bg-primary: #f5efe6;
+  --bg-secondary: #ebe5dc;
+  --text-primary: #333333;
+  --text-secondary: #5d5d5d;
+  --text-muted: #7a7a7a;
+  --icon-color: #5d5d5d;
+  --icon-hover: #8a8a8a;
+  --accent-color: #333333;
+  --accent-hover: #5d5d5d;
+  --border-color: #d4cec5;
+  --shadow-color: rgba(0, 0, 0, 0.06);
   --transition-speed: 0.3s;
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-primary: #0f0f1a;
-    --bg-secondary: #1a1a2e;
-    --text-primary: #f0f0f5;
-    --text-secondary: #b8b8cc;
-    --text-muted: #8888a0;
-    --accent-color: #60a5fa;
-    --accent-hover: #93c5fd;
-    --border-color: #2a2a40;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-  }
+/* Dark mode - Optional, can be toggled manually */
+.dark-mode {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --text-primary: #f0f0f0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #808080;
+  --icon-color: #b0b0b0;
+  --icon-hover: #d0d0d0;
+  --accent-color: #f0f0f0;
+  --accent-hover: #b0b0b0;
+  --border-color: #3a3a3a;
+  --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Reset & Base Styles */
@@ -47,8 +49,7 @@ html {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
@@ -115,21 +116,25 @@ body {
 
 /* Profile Name */
 .profile-name {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: 0;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   transition: color var(--transition-speed) var(--transition-timing);
 }
 
 /* Profile Tagline */
 .profile-tagline {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 37.7px;
+  letter-spacing: 0;
   color: var(--text-secondary);
   margin-bottom: 2rem;
-  opacity: 0.9;
 }
 
 /* Social Links */
@@ -145,32 +150,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: var(--bg-secondary);
-  color: var(--text-secondary);
+  background-color: transparent;
+  color: var(--icon-color);
   text-decoration: none;
-  transition: all var(--transition-speed) var(--transition-timing);
-  border: 1px solid var(--border-color);
+  transition: color var(--transition-speed) var(--transition-timing);
+  border: none;
 }
 
 .social-link:hover {
-  background-color: var(--accent-color);
-  color: #ffffff;
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px var(--shadow-color);
-  border-color: var(--accent-color);
+  color: var(--icon-hover);
 }
 
 .social-link svg {
   width: 22px;
   height: 22px;
-  transition: transform var(--transition-speed) var(--transition-timing);
-}
-
-.social-link:hover svg {
-  transform: scale(1.1);
 }
 
 /* Navigation Links */
@@ -183,39 +179,59 @@ body {
 }
 
 .nav-link {
-  font-size: 1rem;
-  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  letter-spacing: 0.5px;
   color: var(--text-secondary);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all var(--transition-speed) var(--transition-timing);
+  padding: 0.5rem 1.5rem;
+  transition: color var(--transition-speed) var(--transition-timing);
   position: relative;
 }
 
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--accent-color);
-  transition: all var(--transition-speed) var(--transition-timing);
-  transform: translateX(-50%);
-}
-
 .nav-link:hover {
-  color: var(--accent-color);
-}
-
-.nav-link:hover::after {
-  width: 60%;
+  color: var(--icon-hover);
 }
 
 .nav-separator {
+  display: none;
+}
+
+/* Language Switcher */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.lang-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color var(--transition-speed) var(--transition-timing);
+}
+
+.lang-btn:hover {
+  color: var(--icon-hover);
+}
+
+.lang-btn.active {
+  color: var(--text-primary);
+}
+
+.lang-divider {
   color: var(--text-muted);
-  font-size: 0.75rem;
   opacity: 0.5;
 }
 
@@ -291,11 +307,13 @@ body {
   }
 
   .profile-name {
-    font-size: 1.5rem;
+    font-size: 28px;
+    line-height: 44px;
   }
 
   .profile-tagline {
-    font-size: 0.95rem;
+    font-size: 16px;
+    line-height: 28px;
   }
 
   .social-link {
@@ -323,9 +341,16 @@ body {
   animation: pageLoad 0.5s var(--transition-timing) forwards;
 }
 
-/* Focus styles for accessibility */
+/* Focus styles for accessibility - only show for keyboard navigation */
 .social-link:focus,
-.nav-link:focus {
+.nav-link:focus,
+.lang-btn:focus {
+  outline: none;
+}
+
+.social-link:focus-visible,
+.nav-link:focus-visible,
+.lang-btn:focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 4px;
 }
@@ -338,5 +363,159 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 4px;
+  max-width: 520px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #5d5d5d;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #8a8a8a;
+}
+
+.modal-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e5e5e5;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-body p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #5d5d5d;
+  margin-bottom: 1.25rem;
+}
+
+.modal-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Modal WhatsApp Link - Arabic only */
+.modal-whatsapp-link {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin: 1.5rem auto 0;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-whatsapp-link:hover {
+  background-color: #128c7e;
+  transform: scale(1.1);
+}
+
+.rtl .modal-whatsapp-link {
+  display: flex;
+}
+
+/* RTL Modal Styles */
+.rtl .modal-content {
+  direction: rtl;
+}
+
+.rtl .modal-close {
+  right: auto;
+  left: 1.25rem;
+}
+
+/* Responsive Modal */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .modal-body p {
+    font-size: 14px;
+  }
+
+  .modal-image {
+    width: 80px;
+    height: 80px;
   }
 }
