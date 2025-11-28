@@ -5,34 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Mostafa Ibrahim Elsayed - Junior Backend Developer specializing in C#, .NET, and SQL Server"
+      content="Mostafa Ibrahim Elsayed - Backend Developer specializing in C#, .NET, and scalable systems"
     />
     <meta name="author" content="Mostafa Ibrahim Elsayed" />
     <title>Mostafa Ibrahim Elsayed - Backend Developer</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              background: "hsl(53, 33%, 95%)",
-              foreground: "hsl(0, 0%, 28%)",
-              primary: "hsl(0, 0%, 28%)",
-              "primary-foreground": "hsl(53, 33%, 95%)",
-              secondary: "hsl(53, 33%, 90%)",
-              "secondary-foreground": "hsl(0, 0%, 28%)",
-              border: "hsl(53, 20%, 85%)",
-              link: "hsl(0, 88%, 41%)",
-            },
-            fontFamily: {
-              serif: ["Georgia", "Times New Roman", "serif"],
-            },
-          },
-        },
-      };
-    </script>
+    <!-- System fonts - Arial is used like Luay's portfolio -->
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/main.css" />
@@ -42,23 +20,25 @@
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="canonical" href="/" />
 
+    <!-- Open Graph -->
     <meta
       property="og:title"
-      content="Mostafa Ibrahim — Junior Backend Developer"
+      content="Mostafa Ibrahim Elsayed — Backend Developer"
     />
     <meta
       property="og:description"
-      content="Junior backend developer crafting robust .NET APIs and scalable systems."
+      content="Backend developer crafting robust .NET APIs and scalable systems."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
 
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Mostafa Ibrahim Elsayed",
-        "jobTitle": "Junior Backend Developer",
+        "jobTitle": "Backend Developer",
         "url": "/",
         "sameAs": [
           "https://linkedin.com/in/moztafaa",
@@ -68,126 +48,273 @@
     </script>
   </head>
   <body>
-    <main class="min-h-screen">
-      <article class="mx-auto max-w-[720px] px-6 py-12">
-        <header class="mb-8">
-          <h1 class="text-[38px] leading-[42px] font-normal tracking-tight">
-            MOSTAFA IBRAHIM ELSAYED
-          </h1>
-        </header>
+    <!-- Main Container -->
+    <main class="main-container">
+      <!-- Profile Section -->
+      <section class="profile-section">
+        <!-- Profile Image -->
+        <div class="profile-image-wrapper">
+          <img
+            src="./images/circle-grayscale.png"
+            alt="Mostafa Ibrahim Elsayed"
+            class="profile-image"
+            loading="eager"
+          />
+        </div>
 
-        <section aria-label="About" class="mb-12">
-          <p class="relative">
+        <!-- Name -->
+        <h1
+          class="profile-name"
+          data-en="Mostafa Ibrahim Elsayed"
+          data-ar="مصطفى إبراهيم السيد"
+        >
+          Mostafa Ibrahim Elsayed
+        </h1>
+
+        <!-- Tagline -->
+        <p
+          class="profile-tagline"
+          data-en="Backend Developer specialized in .NET"
+          data-en-initial="Best Backend Developer on the planet 🌍"
+          data-ar="Backend Developer متخصص في .NET"
+          data-ar-initial="Backend علي الله حكايته 😅"
+        >
+          Best Backend Developer on the planet 🌍
+        </p>
+
+        <!-- Social Links -->
+        <nav class="social-links" aria-label="Social media links">
+          <a
+            href="https://github.com/moztafaa"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="GitHub"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/moztafaa"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://wa.me/201550737836"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="WhatsApp"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              />
+            </svg>
+          </a>
+          <a
+            href="mailto:imoztafa@gmail.com"
+            class="social-link"
+            aria-label="Email"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </a>
+          <a
+            href="https://wakatime.com/@Moztafaa"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="WakaTime"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 340 340"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M170 20C87.156 20 20 87.156 20 170C20 252.844 87.156 320 170 320C252.844 320 320 252.844 320 170C320 87.156 252.844 20 170 20V20V20Z"
+                stroke="currentColor"
+                stroke-width="40"
+              />
+              <path
+                d="M190.183 213.541C188.74 215.443 186.576 216.667 184.151 216.667C183.913 216.667 183.677 216.651 183.443 216.627C183.042 216.579 182.823 216.545 182.606 216.497C182.337 216.434 182.137 216.375 181.94 216.308C181.561 216.176 181.392 216.109 181.228 216.035C180.843 215.849 180.707 215.778 180.572 215.701C180.205 215.478 180.109 215.412 180.014 215.345C179.856 215.233 179.698 215.117 179.547 214.992C179.251 214.746 179.147 214.65 179.044 214.552C178.731 214.241 178.531 214.018 178.341 213.785C177.982 213.331 177.69 212.888 177.438 212.415L168.6 198.214L159.766 212.415C158.38 214.939 155.874 216.667 152.995 216.667C150.106 216.667 147.588 214.926 146.243 212.346L107.607 156.061C106.337 154.529 105.556 152.499 105.556 150.258C105.556 145.514 109.043 141.665 113.344 141.665C116.127 141.665 118.564 143.282 119.942 145.708L152.555 193.9L161.735 178.952C163.058 176.288 165.626 174.478 168.575 174.478C171.273 174.478 173.652 175.996 175.049 178.298L184.517 193.839L235.684 120.583C237.075 118.226 239.475 116.667 242.213 116.667C246.514 116.667 250 120.514 250 125.258C250 127.332 249.337 129.232 248.23 130.715L190.183 213.541Z"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="10"
+              />
+            </svg>
+          </a>
+        </nav>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" aria-label="Main navigation">
+          <a
+            href="#"
+            class="nav-link"
+            id="about-link"
+            data-en="/about"
+            data-ar="فكرة عني"
+            >/about</a
+          >
+        </nav>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button
+            class="lang-btn active"
+            data-lang="en"
+            aria-label="Switch to English"
+          >
+            en
+          </button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">
+            ع
+          </button>
+        </div>
+      </section>
+
+      <!-- About Modal -->
+      <div class="modal-overlay" id="about-modal">
+        <div class="modal-content">
+          <button class="modal-close" id="modal-close" aria-label="Close modal">
+            &times;
+          </button>
+          <h2 class="modal-title" data-en="About" data-ar="فكرة عني">About</h2>
+
+          <div class="modal-image-wrapper">
             <img
-              src="./images/circle-grayscale.png"
-              alt="Author portrait – junior backend developer"
-              loading="lazy"
-              class="float-left mr-6 mb-5 h-20 w-20 rounded-full object-cover"
+              src="./images/profile-2-circle.png"
+              alt="Mostafa Ibrahim Elsayed"
+              class="modal-image"
             />
-            I am a junior backend developer, recent graduate from the Faculty of
-            Computers and AI at Cairo University, ITI .NET Full-Stack trainee,
-            and aspiring software architect. I'm passionate about building
-            efficient, scalable APIs, exploring system architectures, and
-            continuously learning new technologies.
-          </p>
-          <p class="mt-2">
-            I write about my learning journey on <a href="#">my blog</a>, and
-            you can reach me at
-            <a href="mailto:imoztafa@gmail.com">imoztafa@gmail.com</a>. You can
-            also find me on
-            <a href="https://linkedin.com/in/moztafaa">LinkedIn</a> and
-            <a href="https://github.com/moztafaa">GitHub</a>.
-          </p>
-        </section>
+          </div>
 
-        <section class="mb-12">
-          <h2
-            class="text-[24px] leading-[26px] font-normal text-foreground mb-3"
-          >
-            Backend Developer
-          </h2>
-          <p>
-            I specialize in building robust backend solutions using C#, .NET,
-            and SQL Server. My focus is on creating efficient REST APIs,
-            optimizing databases, and designing clean, maintainable code. I'm
-            always exploring new technologies like Go and Angular to broaden my
-            skill set and improve my approach to system architecture.
-          </p>
-        </section>
+          <div class="modal-body">
+            <p
+              data-en="I am a junior backend developer, recent graduate from the Faculty of Computers and AI at Cairo University, ITI .NET Full-Stack trainee, and aspiring software architect. I'm passionate about building efficient, scalable APIs, exploring system architectures, and continuously learning new technologies."
+              data-ar="ابعت واتس نتعرف احسن 😊"
+            >
+              I am a junior backend developer, recent graduate from the Faculty
+              of Computers and AI at Cairo University, ITI .NET Full-Stack
+              trainee, and aspiring software architect. I'm passionate about
+              building efficient, scalable APIs, exploring system architectures,
+              and continuously learning new technologies.
+            </p>
 
-        <section class="mb-12">
-          <h2
-            class="text-[24px] leading-[26px] font-normal text-foreground mb-3"
-          >
-            Education and Training
-          </h2>
-          <p>
-            I graduated with a Bachelor's degree in Computer Science from Cairo
-            University in 2024. Currently, I'm a trainee in the ITI .NET
-            Full-Stack Diploma, where I'm deepening my expertise in C#, ASP.NET
-            Core, and full-stack development. These experiences have shaped my
-            passion for backend development and my goal to become a software
-            architect.
-          </p>
-        </section>
+            <p
+              data-en="I graduated with a Bachelor's degree in Computer Science from Cairo University in 2024. Currently, I'm a trainee in the ITI .NET Full-Stack Diploma, where I'm deepening my expertise in C#, ASP.NET Core, and full-stack development."
+              data-ar=""
+              class="modal-whatsapp-wrapper"
+            >
+              I graduated with a Bachelor's degree in Computer Science from
+              Cairo University in 2024. Currently, I'm a trainee in the ITI .NET
+              Full-Stack Diploma, where I'm deepening my expertise in C#,
+              ASP.NET Core, and full-stack development.
+            </p>
 
-        <section class="mb-12">
-          <h2
-            class="text-[24px] leading-[26px] font-normal text-foreground mb-3"
-          >
-            Projects and Contributions
-          </h2>
-          <p>
-            I've built several backend projects, including REST APIs with C# and
-            .NET, integrated with SQL Server for efficient data management. I'm
-            also exploring Go for backend services and Angular for frontend
-            development to expand my full-stack capabilities. You can explore my
-            work on <a href="https://github.com/moztafaa">GitHub</a>.
-          </p>
-        </section>
+            <p
+              data-en="I specialize in building robust backend solutions using C#, .NET, and SQL Server. My focus is on creating efficient REST APIs, optimizing databases, and designing clean, maintainable code. I'm also exploring Go for backend services and Angular for frontend development."
+              data-ar=""
+            >
+              I specialize in building robust backend solutions using C#, .NET,
+              and SQL Server. My focus is on creating efficient REST APIs,
+              optimizing databases, and designing clean, maintainable code. I'm
+              also exploring Go for backend services and Angular for frontend
+              development.
+            </p>
 
-        <section class="mb-12">
-          <h2
-            class="text-[24px] leading-[26px] font-normal text-foreground mb-3"
-          >
-            Skills
-          </h2>
-          <ul class="flex flex-wrap gap-2 text-sm" id="skills-list">
-            <!-- Skills will be populated by JavaScript -->
-          </ul>
-        </section>
+            <p
+              data-en="Outside of coding, I'm an avid table tennis player, which helps me stay focused and precise in my work. I'm also a Linux enthusiast, often using Neovim and integrating Linux tools into my Windows workflow for a seamless development experience."
+              data-ar=""
+            >
+              Outside of coding, I'm an avid table tennis player, which helps me
+              stay focused and precise in my work. I'm also a Linux enthusiast,
+              often using Neovim and integrating Linux tools into my Windows
+              workflow for a seamless development experience.
+            </p>
 
-        <section class="mb-12">
-          <h2
-            class="text-[24px] leading-[26px] font-normal text-foreground mb-3"
-          >
-            Personal Interests
-          </h2>
-          <p>
-            Outside of coding, I'm an avid table tennis player, which helps me
-            stay focused and precise in my work. I'm also a Linux enthusiast,
-            often using Neovim and integrating Linux tools into my Windows
-            workflow for a seamless development experience.
-          </p>
-        </section>
+            <a
+              href="https://wa.me/201550737836"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="modal-whatsapp-link"
+              data-show-ar-only="true"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
-        <section class="mb-2">
-          <h2
-            class="text-[24px] leading-[26px] font-normal text-foreground mb-3"
-          >
-            Contact
-          </h2>
-          <p>
-            I welcome emails to
-            <a href="mailto:imoztafa@gmail.com">imoztafa@gmail.com</a>. You can
-            also connect with me on
-            <a href="https://linkedin.com/in/moztafaa">LinkedIn</a> and
-            <a href="https://github.com/moztafaa">GitHub</a>.
-          </p>
-        </section>
-      </article>
+      <!-- Footer -->
+      <footer class="footer">
+        <p
+          data-en="© 2025 Mostafa Ibrahim Elsayed"
+          data-ar="© ٢٠٢٥ مصطفى إبراهيم السيد"
+        >
+          &copy; 2025 Mostafa Ibrahim Elsayed
+        </p>
+      </footer>
     </main>
 
+    <!-- Scripts -->
     <script src="scripts/main.js"></script>
   </body>
 </html>

@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 const rootDir = join(__dirname, "..");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Parse JSON bodies
 app.use(express.json());
