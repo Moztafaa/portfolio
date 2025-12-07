@@ -195,6 +195,29 @@ body {
   color: var(--icon-hover);
 }
 
+/* Resume link attention animation */
+.nav-link-highlight {
+  animation: pulseAttention 2s ease-in-out infinite;
+}
+
+@keyframes pulseAttention {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+.nav-link-highlight:hover {
+  animation: none;
+  transform: scale(1.08);
+  opacity: 1;
+}
+
 .nav-separator {
   display: none;
 }
@@ -518,4 +541,143 @@ body {
     width: 80px;
     height: 80px;
   }
+}
+
+/* Resume Modal Styles */
+.resume-modal-overlay {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.resume-modal-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 95%;
+  height: 90vh;
+  max-height: 90vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: translateY(-20px) scale(0.95);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.resume-modal-overlay.active .resume-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  flex-shrink: 0;
+}
+
+.resume-modal-header .modal-title {
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.resume-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.resume-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.resume-download-btn:hover {
+  background-color: #5d5d5d;
+  transform: translateY(-1px);
+}
+
+.resume-download-btn svg {
+  flex-shrink: 0;
+}
+
+.resume-modal-close {
+  position: relative;
+  top: auto;
+  right: auto;
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.resume-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.resume-pdf-wrapper {
+  flex: 1;
+  overflow: hidden;
+  padding: 0;
+}
+
+.resume-pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Resume Modal Responsive */
+@media (max-width: 768px) {
+  .resume-modal-content {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .resume-modal-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .resume-modal-header .modal-title {
+    font-size: 18px;
+  }
+
+  .resume-download-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 13px;
+  }
+
+  .resume-download-btn span {
+    display: none;
+  }
+}
+
+/* RTL Resume Modal */
+.rtl .resume-modal-header {
+  direction: rtl;
+}
+
+.rtl .resume-modal-close {
+  order: -1;
 }
