@@ -156,6 +156,15 @@ function initScrollReveal() {
     setTimeout(() => {
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
+
+      // Clear inline styles after animation for highlighted links to allow CSS animation
+      if (el.classList.contains("nav-link-highlight")) {
+        setTimeout(() => {
+          el.style.opacity = "";
+          el.style.transform = "";
+          el.style.transition = "";
+        }, 600);
+      }
     }, 100);
 
     observer.observe(el);

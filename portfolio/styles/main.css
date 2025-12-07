@@ -195,6 +195,29 @@ body {
   color: var(--icon-hover);
 }
 
+/* Resume link attention animation */
+.nav-link-highlight {
+  animation: pulseAttention 2s ease-in-out infinite;
+}
+
+@keyframes pulseAttention {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+.nav-link-highlight:hover {
+  animation: none;
+  transform: scale(1.08);
+  opacity: 1;
+}
+
 .nav-separator {
   display: none;
 }
