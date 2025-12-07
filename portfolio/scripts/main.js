@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollReveal();
   initLanguageSwitcher();
   initAboutModal();
+  initResumeModal();
   initTaglineRotation();
 });
 
@@ -342,6 +343,52 @@ function initAboutModal() {
 
   // Open modal when clicking About link
   aboutLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    openModal();
+  });
+
+  // Close modal when clicking X button
+  closeBtn.addEventListener("click", function () {
+    closeModal();
+  });
+
+  // Close modal when clicking outside content
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  function openModal() {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
+/**
+ * Resume Modal - PDF viewer with blur background
+ */
+function initResumeModal() {
+  const resumeLink = document.getElementById("resume-link");
+  const modal = document.getElementById("resume-modal");
+  const closeBtn = document.getElementById("resume-modal-close");
+
+  if (!resumeLink || !modal || !closeBtn) return;
+
+  // Open modal when clicking Resume link
+  resumeLink.addEventListener("click", function (e) {
     e.preventDefault();
     openModal();
   });
