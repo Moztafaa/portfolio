@@ -11,6 +11,16 @@
     --font-ui: 'Inconsolata', monospace;
 }
 
+.dark-mode {
+    --bg-color: #1a1a1a;  /* Dark background (almost black/brown) */
+    --window-bg: #2d2d2d; /* Slightly lighter window background */
+    --text-color: #f0f0f0; /* Light text */
+    --header-color: #cccccc;
+    --border-color: #888888; /* Dimmed border */
+    --accent-color: #ff6b6b; /* Brighter accent for contrast */
+    --selection-color: #444444;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
