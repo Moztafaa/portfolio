@@ -4,7 +4,6 @@
 import express from "express";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const rootDir = join(__dirname, "..");
@@ -19,6 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 // Health check endpoint
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+app.get("/cv", (req, res) => {
+  res.sendFile(join(rootDir, "portfolio/public/resume/Mostafa_Ibrahim_ElSayed_CV.pdf"));
 });
 
 // ============================================
