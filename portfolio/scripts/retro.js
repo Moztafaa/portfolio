@@ -8,6 +8,29 @@ const bootText = [
     "System ready."
 ];
 
+// Theme Switcher Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
+
+    // Check saved preference
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+    }
+
+    if (themeSwitch) {
+        themeSwitch.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+             if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+});
+
+
 let bootComplete = false;
 
 document.addEventListener('DOMContentLoaded', () => {
