@@ -14,7 +14,7 @@ dist-ssr
 
 retro-design
 
-github-readme
+# github-readme
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

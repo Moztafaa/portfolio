@@ -22,7 +22,7 @@ jobs:
           template: terminal
           base: header, activity, community, repositories, metadata
           config_timezone: Africa/Cairo
-          config_padding: 0, 8 + 6%
+          config_padding: "0, 8 + 6%"
 
           # Modules
           plugin_languages: yes

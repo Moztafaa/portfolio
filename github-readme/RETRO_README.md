@@ -19,7 +19,7 @@ public class Developer
 <div align="center">
   <h3>> SYSTEM_STATS.EXE</h3>
   <!-- Linked to the generated metrics file in the 'portfolio' repo -->
-  <img src="https://github.com/Moztafaa/portfolio/blob/main/github-metrics.svg" alt="GitHub Metrics" />
+  <img src="https://raw.githubusercontent.com/Moztafaa/portfolio/main/github-metrics.svg" alt="GitHub Metrics" />
 </div>
 
 <br/>
