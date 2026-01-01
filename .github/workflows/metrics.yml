@@ -19,15 +19,10 @@ jobs:
 
           # Options
           user: Moztafaa
-          template: classic
+          template: terminal
           base: header, activity, community, repositories, metadata
           config_timezone: Africa/Cairo
-
-          # Retro Theme Colors (Solarized Light adaptation)
-          config_style: |
-            .header { color: #CB4B16; }
-            .stat { color: #657B83; }
-            body { background-color: #FDF6E3; color: #657B83; }
+          config_padding: 0, 8 + 6%
 
           # Modules
           plugin_languages: yes
